@@ -45,6 +45,8 @@ protected:
     std::string filePath;
     std::ofstream outputFile;
     int index;
+    int line;
+    int errIndex;
     int inputSize;
     int TOKEN;
     bool b, i, h1, h2, p, ul, li, ol, dl, dt, dd;
