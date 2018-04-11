@@ -17,7 +17,6 @@
 #define PROBLEM_WITH_TITLE  -3
 #define ERROR_WITH_RANGE    -4
 #define ERROR_WITH_B        -5
-#define ERROR_WITH_I        -5
 #define ERROR_WITH_H1       -6
 #define ERROR_WITH_H2       -7
 #define ERROR_WITH_P        -8
