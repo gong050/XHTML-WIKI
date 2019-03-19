@@ -69,8 +69,7 @@ void Parser::readFile(std::string msg)
 {
     input = msg;
     inputSize = msg.size();
-    if(inputSize <= 0)
-    {
+    if(inputSize <= 0) {
         std::cout << "Problem with size of file\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
         exit(ERROR_WITH_SIZE);
     }
@@ -79,233 +78,199 @@ void Parser::readFile(std::string msg)
 
 void Parser::scan()
 {
-    if(input[index] == '\n')
-    {
+    if(input[index] == '\n') {
         errIndex = 0;
         line++;
         index++;
     };
-    if(input.substr(index, 6) == "<head>")
-    {
+    if(input.substr(index, 6) == "<head>") {
         index += 6;
         errIndex += 6;
         TOKEN = HEAD;
         return;
     };
-    if(input.substr(index, 6) == "<html>")
-    {
+    if(input.substr(index, 6) == "<html>") {
         index += 6;
         errIndex += 6;
         TOKEN = HTML;
         return;
     };
-    if(input.substr(index, 7) == "<title>")
-    {
+    if(input.substr(index, 7) == "<title>") {
         index += 7;
         errIndex += 7;
         TOKEN = TITLE;
         return;
     };
-    if(input.substr(index, 6) == "<body>")
-    {
+    if(input.substr(index, 6) == "<body>") {
         index += 6;
         errIndex += 6;
         TOKEN = BODY;
         return;
     };
-    if(input.substr(index, 3) == "<b>")
-    {
+    if(input.substr(index, 3) == "<b>") {
         index += 3;
         errIndex += 3;
         TOKEN = B;
         return;
     };
-    if(input.substr(index, 3) == "<i>")
-    {
+    if(input.substr(index, 3) == "<i>") {
         index += 3;
         errIndex += 3;
         TOKEN = I;
         return;
     };
-    if(input.substr(index, 4) == "<h1>")
-    {
+    if(input.substr(index, 4) == "<h1>") {
         index += 4;
         errIndex += 4;
         TOKEN = H1;
         return;
     };
-    if(input.substr(index, 4) == "<h2>")
-    {
+    if(input.substr(index, 4) == "<h2>") {
         index += 4;
         errIndex += 4;
         TOKEN = H2;
         return;
     };
-    if(input.substr(index, 3) == "<p>")
-    {
+    if(input.substr(index, 3) == "<p>") {
         index += 3;
         errIndex += 3;
         TOKEN = P;
         return;
     };
-    if(input.substr(index, 6) == "<br />")
-    {
+    if(input.substr(index, 6) == "<br />") {
         index += 6;
         errIndex += 6;
         TOKEN = BR;
         return;
     };
-    if(input.substr(index, 4) == "<ul>")
-    {
+    if(input.substr(index, 4) == "<ul>") {
         index += 4;
         errIndex += 4;
         TOKEN = UL;
         return;
     };
-    if(input.substr(index, 4) == "<li>")
-    {
+    if(input.substr(index, 4) == "<li>") {
         index += 4;
         errIndex += 4;
         TOKEN = LI;
         return;
     };
-    if(input.substr(index, 4) == "<ol>")
-    {
+    if(input.substr(index, 4) == "<ol>") {
         index += 4;
         errIndex += 4;
         TOKEN = OL;
         return;
     };
-    if(input.substr(index, 4) == "<dl>")
-    {
+    if(input.substr(index, 4) == "<dl>") {
         index += 4;
         errIndex += 4;
         TOKEN = DL;
         return;
     };
-    if(input.substr(index, 4) == "<dt>")
-    {
+    if(input.substr(index, 4) == "<dt>") {
         index += 4;
         errIndex += 4;
         TOKEN = DT;
         return;
     };
-    if(input.substr(index, 4) == "<dd>")
-    {
+    if(input.substr(index, 4) == "<dd>") {
         index += 4;
         errIndex += 4;
         TOKEN = DD;
         return;
     };
-    if(input.substr(index, 7) == "</head>")
-    {
+    if(input.substr(index, 7) == "</head>") {
         index += 7;
         errIndex += 7;
         TOKEN = endHEAD;
         return;
     };
-    if(input.substr(index, 7) == "</html>")
-    {
+    if(input.substr(index, 7) == "</html>") {
         index += 7;
         errIndex += 7;
         TOKEN = endHTML;
         return;
     };
-    if(input.substr(index, 8) == "</title>")
-    {
+    if(input.substr(index, 8) == "</title>") {
         index += 8;
         errIndex += 8;
         TOKEN = endTITLE;
         return;
     };
-    if(input.substr(index, 4) == "</b>")
-    {
+    if(input.substr(index, 4) == "</b>") {
         index += 4;
         errIndex += 4;
         TOKEN = endB;
         return;
     };
-    if(input.substr(index, 4) == "</i>")
-    {
+    if(input.substr(index, 4) == "</i>") {
         index += 4;
         errIndex += 4;
         TOKEN = endI;
         return;
     };
-    if(input.substr(index, 5) == "</h1>")
-    {
+    if(input.substr(index, 5) == "</h1>") {
         index += 5;
         errIndex += 5;
         TOKEN = endH1;
         return;
     };
-    if(input.substr(index, 5) == "</h2>")
-    {
+    if(input.substr(index, 5) == "</h2>") {
         index += 5;
         errIndex += 5;
         TOKEN = endH2;
         return;
     };
-    if(input.substr(index, 4) == "</p>")
-    {
+    if(input.substr(index, 4) == "</p>") {
         index += 4;
         errIndex += 4;
         TOKEN = endP;
         return;
     };
-    if(input.substr(index, 5) == "</ul>")
-    {
+    if(input.substr(index, 5) == "</ul>") {
         index += 5;
         errIndex += 5;
         TOKEN = endUL;
         return;
     };
-    if(input.substr(index, 5) == "</li>")
-    {
+    if(input.substr(index, 5) == "</li>") {
         index += 5;
         errIndex += 5;
         TOKEN = endLI;
         return;
     };
-    if(input.substr(index, 5) == "</ol>")
-    {
+    if(input.substr(index, 5) == "</ol>") {
         index += 5;
         errIndex += 5;
         TOKEN = endOL;
         return;
     };
-    if(input.substr(index, 5) == "</dl>")
-    {
+    if(input.substr(index, 5) == "</dl>") {
         index += 5;
         errIndex += 5;
         TOKEN = endDL;
         return;
     };
-    if(input.substr(index, 5) == "</dt>")
-    {
+    if(input.substr(index, 5) == "</dt>") {
         index += 5;
         errIndex += 5;
         TOKEN = endDT;
         return;
     };
-    if(input.substr(index, 5) == "</dd>")
-    {
+    if(input.substr(index, 5) == "</dd>") {
         index += 5;
         errIndex += 5;
         TOKEN = endDD;
         return;
     };
-    if(input.substr(index, 7) == "</body>")
-    {
+    if(input.substr(index, 7) == "</body>") {
         index += 7;
         errIndex += 7;
         TOKEN = endBODY;
         return;
     };
-    if(input[index] == '<')
-    {
-        while(input[index] != '>')
-        {
+    if(input[index] == '<') {
+        while(input[index] != '>') {
             errIndex++;
             index++;
         };
@@ -321,18 +286,15 @@ void Parser::scan()
 void Parser::parserHTML()
 {
     scan();
-    if(TOKEN != HTML)
-    {
+    if(TOKEN != HTML) {
         std::cout << "Problem with <html>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
         exit(PROBLEM_WITH_HTML);
     };
     parserHEAD();
     scan();
     parserBODY();
-    while(TOKEN != endHTML)
-    {
-        if(index == inputSize)
-        {
+    while(TOKEN != endHTML) {
+        if(index == inputSize) {
             std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
             exit(ERROR_WITH_RANGE);
         };
@@ -343,36 +305,29 @@ void Parser::parserHTML()
 
 void Parser::parserHEAD()
 {
-    while(TOKEN != HEAD)
-    {
+    while(TOKEN != HEAD) {
         if(index == inputSize) exit(ERROR_WITH_RANGE);
         scan();
     };
     
-    if(TOKEN != HEAD)
-    {
+    if(TOKEN != HEAD) {
         std::cout << "Problem with <head>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
         exit(PROBLEM_WITH_HEAD);
     };
 
-    while(TOKEN != TITLE)
-    {
-        if(index == inputSize)
-        {
+    while(TOKEN != TITLE) {
+        if(index == inputSize) {
             std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
             exit(ERROR_WITH_RANGE);
         };
         scan();
     };
     
-    if(TOKEN == TITLE)
-    {
+    if(TOKEN == TITLE) {
         parserTITLE();
     };
-    while(TOKEN != endHEAD)
-    {
-        if(index == inputSize)
-        {
+    while(TOKEN != endHEAD) {
+        if(index == inputSize) {
             std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
             exit(ERROR_WITH_RANGE);
         };
@@ -385,10 +340,8 @@ void Parser::parserTITLE()
 {
     output += "==";
     
-    while(TOKEN != endTITLE)
-    {
-        if(index == inputSize)
-        {
+    while(TOKEN != endTITLE) {
+        if(index == inputSize) {
             std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
             exit(ERROR_WITH_RANGE);
         };
@@ -401,20 +354,16 @@ void Parser::parserTITLE()
 
 void Parser::parserBODY()
 {
-    while(TOKEN != BODY)
-    {
-        if(index == inputSize)
-        {
+    while(TOKEN != BODY) {
+        if(index == inputSize) {
             std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
             exit(ERROR_WITH_RANGE);
         };
         scan();
     };
     parserCONTENT();
-    while(TOKEN != endBODY)
-    {
-        if(index == inputSize)
-        {
+    while(TOKEN != endBODY) {
+        if(index == inputSize) {
             std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
             exit(ERROR_WITH_RANGE);
         };
@@ -432,12 +381,9 @@ void Parser::parserCONTENT()
 
 void Parser::parserTAG()
 {
-    while(TOKEN != endBODY)
-    {
-        while(TOKEN != LI && TOKEN != B && TOKEN != I && TOKEN != H1 && TOKEN != H2 && TOKEN != P && TOKEN != BR && TOKEN != UL && TOKEN != OL && TOKEN != DL && TOKEN != endB && TOKEN != endI && TOKEN != endH1 && TOKEN != endH2 && TOKEN != endP && TOKEN != endUL && TOKEN != endOL && TOKEN != endDL && TOKEN != endBODY && TOKEN != endLI)
-        {
-            if(index == inputSize)
-            {
+    while(TOKEN != endBODY) {
+        while(TOKEN != LI && TOKEN != B && TOKEN != I && TOKEN != H1 && TOKEN != H2 && TOKEN != P && TOKEN != BR && TOKEN != UL && TOKEN != OL && TOKEN != DL && TOKEN != endB && TOKEN != endI && TOKEN != endH1 && TOKEN != endH2 && TOKEN != endP && TOKEN != endUL && TOKEN != endOL && TOKEN != endDL && TOKEN != endBODY && TOKEN != endLI) {
+            if(index == inputSize) {
                 std::cout << "Problem with range\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_RANGE);
             };
@@ -445,139 +391,110 @@ void Parser::parserTAG()
             scan();
         };
 
-        if(TOKEN == B)
-        {
+        if(TOKEN == B) {
             b = true;
             parserB();
         };
-        if(TOKEN == LI)
-        {
+        if(TOKEN == LI) {
             li = true;
             parserLI();
         };
-        if(TOKEN == I)
-        {
+        if(TOKEN == I) {
             i = true;
             parserI();
         };
-        if(TOKEN == H1)
-        {
+        if(TOKEN == H1) {
             h1 = true;
             parserH1();
         };
-        if(TOKEN == H2)
-        {
+        if(TOKEN == H2) {
             h2 = true;
             parserH2();
         };
-        if(TOKEN == P)
-        {
+        if(TOKEN == P) {
             p = true;
             parserP();
         };
-        if(TOKEN == BR)
-        {
+        if(TOKEN == BR) {
             parserBR();
         };
-        if(TOKEN == UL)
-        {
+        if(TOKEN == UL) {
             ul = true;
             parserUL();
         };
-        if(TOKEN == OL)
-        {
+        if(TOKEN == OL) {
             ol = true;
             parserOL();
         };
-        if(TOKEN == DL)
-        {
+        if(TOKEN == DL) {
             dl = true;
             parserDL();
         };
-        if(TOKEN == endLI)
-        {
-            if(li == true) li = false; else
-            {
+        if(TOKEN == endLI) {
+            if(li == true) li = false; else {
                 std::cout << "Problem with </li>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_LI);
             };
             return;
         };
-        if(TOKEN == endB)
-        {
-            if(b == true) b = false; else
-            {
+        if(TOKEN == endB) {
+            if(b == true) b = false; else {
                 std::cout << "Problem with </b>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_B);
             };
             return;
         };
-        if(TOKEN == endI)
-        {
-            if(i == true) i = false; else
-            {
+        if(TOKEN == endI) {
+            if(i == true) i = false; else {
                 std::cout << "Problem with </i>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_I);
             };
             return;
         };
-        if(TOKEN == endH1)
-        {
-            if(h1 == true) h1 = false; else
-            {
+        if(TOKEN == endH1) {
+            if(h1 == true) h1 = false; else {
                 std::cout << "Problem with </h1>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_H1);
             };
             return;
         };
-        if(TOKEN == endH2)
-        {
-            if(h2 == true) h2 = false; else
-            {
+        if(TOKEN == endH2) {
+            if(h2 == true) h2 = false; else {
                 std::cout << "Problem with </h2>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_H2);
             };
             return;
         };
-        if(TOKEN == endP)
-        {
-            if(p == true) p = false; else
-            {
+        if(TOKEN == endP) {
+            if(p == true) p = false; else {
                 std::cout << "Problem with </p>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_P);
             };
             return;
         };
-        if(TOKEN == endUL)
-        {
-            if(ul == true) ul = false; else
-            {
+        if(TOKEN == endUL) {
+            if(ul == true) ul = false; else {
                 std::cout << "Problem with </ul>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_UL);
             };
             return;
         };
-        if(TOKEN == endOL)
-        {
-            if(ol == true) ol = false; else
-            {
+        if(TOKEN == endOL) {
+            if(ol == true) ol = false; else {
                 std::cout << "Problem with </ol>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_OL);
             };
             return;
         };
-        if(TOKEN == endDL)
-        {
-            if(dl == true) dl = false; else
-            {
+        if(TOKEN == endDL) {
+            if(dl == true) dl = false; else {
                 std::cout << "Problem with </dl>\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
                 exit(ERROR_WITH_DL);
             };
             return;
         };
     };
-    if(TOKEN == endBODY && !dl && !ol && !ul && !p && !h2 && !h1 && !i && !b) return; else
-    {
+    if(TOKEN == endBODY && !dl && !ol && !ul && !p && !h2 && !h1 && !i && !b) return; else {
         std::cout << "Problem with tag\n Line number: " << line << "\nElement on line: " << errIndex << std::endl;
         exit(ERROR_WITH_TAG);
     };
